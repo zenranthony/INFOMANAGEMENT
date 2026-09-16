@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2026 at 05:02 PM
+-- Generation Time: Sep 16, 2026 at 04:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -136,7 +136,9 @@ INSERT INTO `audit_logs` (`id`, `user_id`, `action`, `description`, `ip_address`
 (34, 1, 'login', 'Successful login with authenticator verification.', '::1', 'success', '2026-09-15 14:59:17'),
 (35, NULL, 'login', 'Failed login attempt.', '::1', 'failed', '2026-09-15 15:00:23'),
 (36, 3, 'member_otp_sent', 'Email OTP sent after successful member password login.', '::1', 'success', '2026-09-15 15:00:35'),
-(37, 3, 'login', 'Successful member login with email OTP verification.', '::1', 'success', '2026-09-15 15:00:42');
+(37, 3, 'login', 'Successful member login with email OTP verification.', '::1', 'success', '2026-09-15 15:00:42'),
+(38, 3, 'member_otp_sent', 'Email OTP sent after successful member password login.', '::1', 'success', '2026-09-16 14:06:58'),
+(39, 3, 'login', 'Successful member login with email OTP verification.', '::1', 'success', '2026-09-16 14:07:04');
 
 -- --------------------------------------------------------
 
@@ -156,12 +158,12 @@ CREATE TABLE `auth_throttle` (
 
 INSERT INTO `auth_throttle` (`bucket`, `attempts`, `window_started`) VALUES
 ('0dec399fb0f5d09ed0313b16c963cfd3b60b1de7ff7bf0aa43683b47ea842e1b', 1, 1789484423),
-('164f437932afb830b189668b8f813ddc9e6567a0b8fe850271bc369a4661672e', 3, 1789483720),
+('164f437932afb830b189668b8f813ddc9e6567a0b8fe850271bc369a4661672e', 1, 1789567623),
 ('198286edff5123d5e59ea8a2b10bfdfbc9cb3f69ba159d1b44726957b6ed85db', 2, 1789484152),
 ('6646fe8bd738e49e009c0984738f8ecf0755879406a7b0bdcb5b68db3fd9efa0', 2, 1789484141),
-('6d96e5b3d0d28d477a78c296b9e98b4eed80f70121f8a6abd57fbcff1794a4f1', 3, 1789483705),
-('80347c8c68360d3d86e4a8d34a9acae9921321b75c4c59741ead9e70ed873523', 3, 1789483720),
-('894d5b5cb309107d0fe3419e68fd7c5bb7ea29177ec5e667c1555c57cd324035', 6, 1789483705),
+('6d96e5b3d0d28d477a78c296b9e98b4eed80f70121f8a6abd57fbcff1794a4f1', 1, 1789567610),
+('80347c8c68360d3d86e4a8d34a9acae9921321b75c4c59741ead9e70ed873523', 1, 1789567623),
+('894d5b5cb309107d0fe3419e68fd7c5bb7ea29177ec5e667c1555c57cd324035', 1, 1789567610),
 ('8cb6770c76892c5f44c561d7944231905bfd548ee3214b4e445b9380e3733c8e', 1, 1789457621),
 ('c0f6723051fbf74bd9ea787a1d38ba8cc89862f139aaf6f26935d44369aff818', 2, 1789484152),
 ('fe6ae851f763471a787d9851fa0dfaf3694f2df9fc2869a6445f5a86758427fb', 1, 1789458747);
@@ -356,7 +358,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`, `status`, `otp_code`, `otp_expires_at`, `otp_attempts`) VALUES
 (1, 'admin_juan', 'admin@pascco.local', '$2y$10$qbbFCYFpkoXS/PdnWdym.OVEgBwR8dEIAwMJ66JWrSfdo5/1SCJyW', 'admin', '2026-09-15 07:56:34', 'active', NULL, NULL, 0),
 (2, 'maria_santos', 'renzpizza172@gmail.com', '$2y$10$goT3ROzNj1F7BMXVsYflJO/GvovYR6VMJVNe99HmWjjbXs85gE9Um', 'member', '2026-09-15 08:59:49', 'active', NULL, NULL, 0),
-(3, 'francis_balsy', 'renzpizza172@gmail.com', '$2y$10$IQeH.6vXfccPALXT5uHkUu.OT6Prob1R/rNXeED0ljsqqLg/NyiwS', 'member', '2026-09-15 15:00:42', 'active', NULL, NULL, 0);
+(3, 'francis_balsy', 'renzpizza172@gmail.com', '$2y$10$IQeH.6vXfccPALXT5uHkUu.OT6Prob1R/rNXeED0ljsqqLg/NyiwS', 'member', '2026-09-16 14:07:04', 'active', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -509,7 +511,7 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `audit_logs`
 --
 ALTER TABLE `audit_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `deposit_requests`
